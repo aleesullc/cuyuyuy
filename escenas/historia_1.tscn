@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dbc8wn7ef08gw"]
+
+[ext_resource type="Script" uid="uid://o5653cyb801s" path="res://escenas/historia_1.gd" id="1_x21l2"]
+[ext_resource type="Texture2D" uid="uid://cu87wttca4r53" path="res://sprites_ale/imagen_1.png" id="2_1y3fg"]
+[ext_resource type="Texture2D" uid="uid://br8rsjcshjtt0" path="res://sprites_ale/imagen_2.png" id="3_435jo"]
+
+[node name="Control" type="Control" unique_id=1973058943]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x21l2")
+imagenes = Array[Texture2D]([ExtResource("2_1y3fg"), ExtResource("3_435jo")])
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=2110717023]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

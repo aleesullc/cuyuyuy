@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dpevpttulfo3r"]
+
+[ext_resource type="Texture2D" uid="uid://bj750klltt12i" path="res://Sprites/Tiles/Default/water.png" id="1_uqncu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kaos3"]
+size = Vector2(66, 63)
+
+[node name="PISO" type="StaticBody2D" unique_id=605463092]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1192977698]
+position = Vector2(41, 37.5)
+shape = SubResource("RectangleShape2D_kaos3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=884400197]
+position = Vector2(41, 38)
+texture = ExtResource("1_uqncu")

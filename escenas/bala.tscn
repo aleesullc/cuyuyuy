@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://du8etanmrkhwe"]
+
+[ext_resource type="Script" uid="uid://bqhxl3a1xfmhm" path="res://bala.gd" id="1_2y4dy"]
+[ext_resource type="Texture2D" uid="uid://dbnwr0lipnsml" path="res://Sprites/Enemies/Double/saw_rest.png" id="2_66u8n"]
+[ext_resource type="Texture2D" uid="uid://qumoo1nnu6je" path="res://Sprites/Enemies/Double/saw_a.png" id="3_2qn40"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsvbv"]
+atlas = ExtResource("3_2qn40")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_66u8n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_66u8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsvbv")
+}],
+"loop": 1,
+"name": &"bala_ani",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2qn40"]
+radius = 8.0
+
+[node name="Area2D" type="Area2D" unique_id=1048937709]
+collision_mask = 1
+script = ExtResource("1_2y4dy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=207162790]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_66u8n")
+animation = &"bala_ani"
+frame_progress = 0.7565402
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=510272915]
+shape = SubResource("CircleShape2D_2qn40")

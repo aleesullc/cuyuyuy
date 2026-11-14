@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://t4exeuoq4f60"]
+
+[ext_resource type="Texture2D" uid="uid://dxehbrbvf8fm0" path="res://sprites_ale/corazon_lleno.png" id="1_o7eln"]
+
+[node name="HBoxContainer" type="HBoxContainer" unique_id=199049918]
+offset_right = 56.0
+offset_bottom = 16.0
+
+[node name="cora 1" type="TextureRect" parent="." unique_id=440878181]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_o7eln")
+expand_mode = 1
+
+[node name="cora 2" type="TextureRect" parent="." unique_id=1169952598]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_o7eln")
+expand_mode = 1
+
+[node name="cora 3" type="TextureRect" parent="." unique_id=1335507950]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_o7eln")
+expand_mode = 1

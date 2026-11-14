@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bsaekrirl5bu4"]
+
+[ext_resource type="Texture2D" uid="uid://dagp70yki1hm8" path="res://Sprites/Enemies/Double/bee_a.png" id="1_cdbbl"]
+[ext_resource type="Script" uid="uid://b46kaa3qmpfpd" path="res://scripts/jugador.gd" id="1_glrvs"]
+[ext_resource type="PackedScene" uid="uid://dpevpttulfo3r" path="res://escenas/piso.tscn" id="3_v12yk"]
+[ext_resource type="Script" uid="uid://cwwuce4e6ilrt" path="res://scripts/detector.gd" id="4_16hu1"]
+[ext_resource type="Texture2D" uid="uid://w0ttivagrmc7" path="res://Sprites/Tiles/Double/star.png" id="5_7oex1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1xaqq"]
+radius = 67.0
+height = 134.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1xaqq"]
+radius = 40.0
+
+[node name="Node2D" type="Node2D" unique_id=1216198149]
+
+[node name="Jugador" type="CharacterBody2D" parent="." unique_id=1128199515]
+position = Vector2(144, 464)
+script = ExtResource("1_glrvs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Jugador" unique_id=154651607]
+position = Vector2(0, -1)
+texture = ExtResource("1_cdbbl")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador" unique_id=588606532]
+position = Vector2(-2, -3)
+shape = SubResource("CapsuleShape2D_1xaqq")
+
+[node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=529915765]
+position_smoothing_enabled = true
+
+[node name="PISO" parent="." unique_id=605463092 instance=ExtResource("3_v12yk")]
+position = Vector2(-8, 576)
+
+[node name="PISO2" parent="." unique_id=182177169 instance=ExtResource("3_v12yk")]
+position = Vector2(64, 568)
+
+[node name="PISO3" parent="." unique_id=1547812554 instance=ExtResource("3_v12yk")]
+position = Vector2(128, 568)
+
+[node name="PISO4" parent="." unique_id=656827862 instance=ExtResource("3_v12yk")]
+position = Vector2(192, 568)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2050476468]
+script = ExtResource("4_16hu1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=239071663]
+position = Vector2(280, 504)
+shape = SubResource("CircleShape2D_1xaqq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1531940475]
+position = Vector2(280, 512)
+texture = ExtResource("5_7oex1")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

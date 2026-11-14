@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://0nb3jj3875ni"]
+
+[ext_resource type="Texture2D" uid="uid://cv3t3l5t14sww" path="res://Sprites/Enemies/Default/snail_rest.png" id="1_743j8"]
+[ext_resource type="Script" uid="uid://b5kdllqtdj6od" path="res://enemigo.gd" id="1_hpq8b"]
+[ext_resource type="Texture2D" uid="uid://ud5uabthe5b1" path="res://Sprites/Enemies/Default/snail_shell.png" id="2_hpq8b"]
+[ext_resource type="PackedScene" uid="uid://du8etanmrkhwe" path="res://escenas/bala.tscn" id="2_y7635"]
+[ext_resource type="Texture2D" uid="uid://cyraucd0dcqc2" path="res://Sprites/Enemies/Default/slime_normal_walk_b.png" id="3_y7635"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu81h"]
+atlas = ExtResource("1_743j8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6fnk"]
+atlas = ExtResource("2_hpq8b")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5phiq"]
+atlas = ExtResource("3_y7635")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kaos3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu81h")
+}],
+"loop": 1,
+"name": &"caminar_ene",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6fnk")
+}],
+"loop": 2,
+"name": &"disparar_ene",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5phiq")
+}],
+"loop": 2,
+"name": &"morir_ene",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4n5da"]
+size = Vector2(66, 53)
+
+[node name="Node2D" type="Node2D" unique_id=393722942]
+
+[node name="enemigo" type="CharacterBody2D" parent="." unique_id=439874807]
+collision_layer = 2
+script = ExtResource("1_hpq8b")
+escena_bala = ExtResource("2_y7635")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemigo" unique_id=1244932639]
+sprite_frames = SubResource("SpriteFrames_kaos3")
+animation = &"caminar_ene"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemigo" unique_id=1102790201]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_4n5da")
+
+[node name="Timer" type="Timer" parent="enemigo" unique_id=556526563]
+wait_time = 2.0
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="enemigo" unique_id=1074666185]
